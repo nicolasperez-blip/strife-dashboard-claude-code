@@ -1,0 +1,106 @@
+:root,
+[data-theme='neon'] {
+  --bg: #0a0a12;
+  --bg2: #12121f;
+  --fg: #e6e6ff;
+  --dim: #8a8ab8;
+  --acc: #ff2bd6;
+  --acc2: #00f0ff;
+  --line: #00f0ff;
+  --onacc: #0a0a12;
+  --danger: #ff5c5c;
+  --warn: #f5f749;
+  --glow-acc: 0 0 6px var(--acc);
+  --glow-acc2: 0 0 6px var(--acc2);
+  --glow-box: 0 0 4px color-mix(in srgb, var(--line) 50%, transparent);
+  --ff: 'Share Tech Mono', ui-monospace, monospace;
+  --fs: 15px;
+  --frame: 2px solid var(--line);
+  --s1: #ff2bd6;
+  --s2: #f5f749;
+  --s3: #00f0ff;
+  --s4: #39ff88;
+  --s5: #8a8ab8;
+}
+
+[data-theme='gb'] {
+  --bg: #9bbc0f;
+  --bg2: #8bac0f;
+  --fg: #0f380f;
+  --dim: #306230;
+  --acc: #0f380f;
+  --acc2: #306230;
+  --line: #0f380f;
+  --onacc: #9bbc0f;
+  --danger: #0f380f;
+  --warn: #0f380f;
+  --glow-acc: none;
+  --glow-acc2: none;
+  --glow-box: none;
+  --ff: 'Pixelify Sans', ui-monospace, monospace;
+  --fs: 16px;
+  --frame: 10px solid #306230;
+  --s1: #0f380f;
+  --s2: #306230;
+  --s3: #0f380f;
+  --s4: #306230;
+  --s5: #8bac0f;
+}
+
+[data-theme='amber'] {
+  --bg: #140d02;
+  --bg2: #1d1404;
+  --fg: #ffb000;
+  --dim: #b07a00;
+  --acc: #ffcc4d;
+  --acc2: #ffb000;
+  --line: #ffb000;
+  --onacc: #140d02;
+  --danger: #ff7a3d;
+  --warn: #ffcc4d;
+  --glow-acc: 0 0 5px var(--acc);
+  --glow-acc2: 0 0 5px var(--acc2);
+  --glow-box: 0 0 4px color-mix(in srgb, var(--line) 40%, transparent);
+  --ff: 'VT323', ui-monospace, monospace;
+  --fs: 20px;
+  --frame: 2px solid var(--line);
+  --s1: #ffcc4d;
+  --s2: #ffb000;
+  --s3: #b07a00;
+  --s4: #ffcc4d;
+  --s5: #6b4a00;
+}
+
+[data-theme='syn'] {
+  --bg: #1a0b2e;
+  --bg2: #241040;
+  --fg: #f5e6ff;
+  --dim: #a58fd0;
+  --acc: #ff6ec7;
+  --acc2: #ffd319;
+  --line: #7b5cff;
+  --onacc: #1a0b2e;
+  --danger: #ff5c7a;
+  --warn: #ffd319;
+  --glow-acc: 0 0 5px var(--acc);
+  --glow-acc2: 0 0 5px var(--acc2);
+  --glow-box: 0 0 4px color-mix(in srgb, var(--line) 50%, transparent);
+  --ff: 'Space Mono', ui-monospace, monospace;
+  --fs: 14px;
+  --frame: 2px solid var(--line);
+  --s1: #ff6ec7;
+  --s2: #2de2e6;
+  --s3: #ffd319;
+  --s4: #b892ff;
+  --s5: #6e5a94;
+}
+
+/* CRT scan lines over the whole page in the amber theme. */
+[data-theme='amber'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px);
+}

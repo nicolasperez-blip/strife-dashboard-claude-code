@@ -65,3 +65,4 @@ Levanta el servidor con recarga y Vite en http://localhost:5177.
 
 - `server/`: Hono sobre Node. `sessions.ts` indexa transcripts, `usage.ts` arma el uso, `agents.ts` corre agentes, `summaries.ts` hace los resúmenes, `feed.ts` trae novedades, `board.ts` guarda tablero, todos y extras por proyecto.
 - `web/`: React + Vite. Temas en `web/src/themes.css` (neón, Game Boy, CRT ámbar, synthwave).
+- 'finetunning/': Aca van una lista de skills, se van a versionar y algunas reglas

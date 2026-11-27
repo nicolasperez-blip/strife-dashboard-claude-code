@@ -6,13 +6,13 @@ import { projectLabel, useUi } from '../ui';
 /** Notes for the "todos" tab live under this key. */
 const GENERAL = '_general';
 
-export function SidePanel() {
+export function SidePanel({ hideTodos = false }: { hideTodos?: boolean }) {
   const { project } = useUi();
   const projects = useProjects();
   const current = projects.data?.find((p) => p.id === project);
   return (
     <aside className="side" aria-label="Panel lateral">
-      <TodoBox />
+      {!hideTodos && <TodoBox />}
       <NotesBox key={project} projectId={project === 'all' ? GENERAL : project} />
       <FeedBox />
       {current && <LinksBox project={current} />}

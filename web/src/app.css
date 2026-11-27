@@ -220,3 +220,14 @@ hr.sep { border: none; border-top: 1px dashed var(--dim); margin: 14px 0 0; }
 .resize-handle:focus-visible { outline: none; }
 .drawer-handle { position: fixed; left: auto; top: 0; bottom: 0; z-index: 51; transform: translateX(6px); }
 body.resizing { cursor: col-resize; user-select: none; }
+
+/* ---------- todos page ---------- */
+.todo-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; margin-top: 10px; align-items: start; }
+.todo-group { border: 1px dashed var(--dim); padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.todo-group-head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+.todo-row .todo-age { margin-left: auto; font-size: 0.85em; white-space: nowrap; }
+.todo-row .x { margin-left: 0; }
+.todo-row .x:focus-visible, .todo-row:focus-within .x { visibility: visible; }
+.todo-edit { display: flex; flex-wrap: wrap; gap: 6px; }
+.todo-edit input { flex: 1 1 160px; min-width: 0; }
+.todo-search { width: 160px; }

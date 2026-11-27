@@ -8,13 +8,16 @@ import { SidePanel } from './components/SidePanel';
 import { Drawer } from './components/Drawer';
 import { NewAgentDialog } from './components/NewAgentDialog';
 import { UsagePage } from './components/UsagePage';
+import { TodosPage } from './components/TodosPage';
 import { useResizable } from './useResizable';
+
+type Page = 'sessions' | 'todos' | 'board' | 'usage';
 
 const SIDE_MAX = () => Math.max(260, window.innerWidth - 480);
 
 export function App() {
   const [theme, setTheme] = useState(() => stored<string>('cp.theme', 'neon'));
-  const [page, setPage] = useState<'sessions' | 'board' | 'usage'>(() => stored<'sessions' | 'board' | 'usage'>('cp.page', 'sessions'));
+  const [page, setPage] = useState<Page>(() => stored<Page>('cp.page', 'sessions'));
   const [project, setProject] = useState(() => stored<string>('cp.project', 'all'));
   const [drawer, setDrawer] = useState<DrawerTarget>(null);
   const [agentDraft, setAgentDraft] = useState<AgentDraft | null>(null);
@@ -48,6 +51,7 @@ export function App() {
           <span className="hl">&gt; claudiopiloto</span>
           <nav aria-label="Vistas">
             <button className={`tab ${page === 'sessions' ? 'on' : ''}`} onClick={() => setPage('sessions')}>sesiones</button>
+            <button className={`tab ${page === 'todos' ? 'on' : ''}`} onClick={() => setPage('todos')}>todo</button>
             <button className={`tab ${page === 'board' ? 'on' : ''}`} onClick={() => setPage('board')}>agentes</button>
             <button className={`tab ${page === 'usage' ? 'on' : ''}`} onClick={() => setPage('usage')}>uso</button>
           </nav>
@@ -95,8 +99,14 @@ export function App() {
             </div>
             <div className="main" style={{ '--side-w': `${side.width}px` } as React.CSSProperties}>
               <div style={{ minWidth: 0 }}>
-                {page === 'sessions' ? <SessionsBoard /> : <BoardView />}
-                <HistoryList />
+                {page === 'todos' ? (
+                  <TodosPage />
+                ) : (
+                  <>
+                    {page === 'sessions' ? <SessionsBoard /> : <BoardView />}
+                    <HistoryList />
+                  </>
+                )}
               </div>
               <div className="side-wrap">
                 <div
@@ -109,7 +119,7 @@ export function App() {
                   onPointerDown={side.onPointerDown}
                   onKeyDown={side.onKeyDown}
                 />
-                <SidePanel />
+                <SidePanel hideTodos={page === 'todos'} />
               </div>
             </div>
           </>

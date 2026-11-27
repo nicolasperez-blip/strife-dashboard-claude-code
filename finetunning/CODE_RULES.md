@@ -1,10 +1,14 @@
 # Reglas del proyecto
 
+## Reglas de codigo
+- Las aplicaciones Web deben seguir las pautas de Resumen de los estándares de accesibilidad de W3C, al menos clase A
+
 ## CSS
 - NUNCA estilar elementos HTML directamente (`div { }`, `button { }`, `h1 { }`). Todo estilo va en clases.
 - Usar herencia y composición de clases; reutilizar clases existentes antes de crear nuevas.
 - Si es posible, usar Tailwind CSS en lugar de CSS propio.
 - Evitar estilos inline (`style={{ }}`) salvo para valores dinámicos que no se puedan expresar con clases.
+- Intentar usar animationes o transitions para los :hovers, la experiencia debe ser "smooth" y siguiendo tambien las normas de accessibilidad por si el usuario desactiva las animaciones
 
 ## React
 - Siempre usar TypeScript.
